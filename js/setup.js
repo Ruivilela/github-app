@@ -20,11 +20,11 @@ function setup():React.Component {
 
     render() {
       return (
-        <StyleProvider style={getTheme(platform)}>
-          <Provider store={this.state.store}>
-            <App />
-          </Provider>
-        </StyleProvider>
+          <StyleProvider style={getTheme(platform)}>
+            <Provider store={this.state.store}>
+              <App />
+            </Provider>
+          </StyleProvider>        
       );
     }
   }

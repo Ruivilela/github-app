@@ -4,6 +4,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
+import { all } from 'redux-saga/effects';
 
 // import promise from './promise';
 
@@ -11,9 +12,21 @@ import createSagaMiddleware from 'redux-saga';
 import peopleReducer from './people/reducer.js';
 import searchReducer from './search/reducer.js';
 
-export default function configureStore(onCompletion:()=>void):any {
+// effects 
+import searchEffects from './search/effects';
+
+export default function configureStore(){
+
+  function* rootEffects(){
+      yield all([
+        searchEffects()
+      ])
+  }
+    
+  const sagaMiddleware = createSagaMiddleware();
+
   const enhancer = compose(
-    applyMiddleware(createSagaMiddleware()),
+    applyMiddleware(sagaMiddleware),
     devTools({
       name: 'nativestarterkit', realtime: true,
     }),
@@ -25,7 +38,9 @@ export default function configureStore(onCompletion:()=>void):any {
   })
 
   const store = createStore(reducer, enhancer);
-  persistStore(store, { storage: AsyncStorage }, onCompletion);
+  persistStore(store, { storage: AsyncStorage });
+
+  sagaMiddleware.run(rootEffects)
 
   return store;
 }

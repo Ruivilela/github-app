@@ -5,7 +5,12 @@ const searchReducer =
   
         switch(action.type){
             case 'MAKE_SEARCH':
-                return state
+                newState = Object.assign({}, state, action.payload)
+                return newState
+                break;
+            case 'UPDATE_SEARCH_TERM':
+                newState = Object.assign({} , state, action.payload)
+                return newState
                 break;
         }
         

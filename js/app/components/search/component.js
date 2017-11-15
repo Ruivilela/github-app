@@ -37,8 +37,10 @@ export default class Search extends Component {
     }
 
     search_github(search_term){
-        this.props.actions.make_search_async(
-            search_term
-        )
+        if(search_term){
+            this.props.actions.make_search_async(
+                search_term
+            )
+        }
     }
 }

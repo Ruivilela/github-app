@@ -9,11 +9,6 @@ const peopleReducer =
             case 'GET_PEOPLE':
                 return state
                 break;
-
-            case 'UPDATE_SEARCH_TERM':
-                newState = Object.assign(...state, action.payload)
-                return newState
-                break;
         }
         
         return state;    
