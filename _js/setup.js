@@ -1,9 +1,10 @@
+
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
 import { StyleProvider } from 'native-base';
-import App from './app/index.js';
-import configureStore from './state/store';
+import App from './App';
+import configureStore from './configureStore';
 import getTheme from '../native-base-theme/components';
 import platform from '../native-base-theme/variables/platform';
 
