@@ -7,9 +7,6 @@ import { persistStore } from 'redux-persist';
 import promise from './promise';
 // import { combineReducers } from '../../../../../Library/Caches/typescript/2.6/node_modules/redux';
 
-// import reducers here
-import from ''
-
 export default function configureStore(onCompletion:()=>void):any {
   const enhancer = compose(
     applyMiddleware(thunk, promise),
@@ -17,10 +14,6 @@ export default function configureStore(onCompletion:()=>void):any {
       name: 'nativestarterkit', realtime: true,
     }),
   );
-
-  const reducer = combineReducers({
-
-  })
 
   const store = createStore(reducer, enhancer);
   persistStore(store, { storage: AsyncStorage }, onCompletion);

@@ -5,11 +5,11 @@ const searchReducer =
   
         switch(action.type){
             case 'MAKE_SEARCH':
-            return state
-            break;
+                return state
+                break;
         }
         
         return state;    
     }
 
-export default peopleReducer; 
+export default searchReducer; 

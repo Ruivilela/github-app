@@ -8,8 +8,8 @@ import createSagaMiddleware from 'redux-saga';
 // import promise from './promise';
 
 // reducers
-import peopleReducer from './people/reducer'
-import searchReducer from './search/reducer'
+import peopleReducer from './people/reducer.js';
+import searchReducer from './search/reducer.js';
 
 export default function configureStore(onCompletion:()=>void):any {
   const enhancer = compose(
