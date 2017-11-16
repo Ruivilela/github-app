@@ -18,3 +18,9 @@ export const MAKE_SEARCH = (payload) => {
         payload: payload 
     }
 }
+
+export const RESET_SEARCH_STATE = () => {
+    return {
+        type: 'RESET_SEARCH_STATE'
+    }
+}

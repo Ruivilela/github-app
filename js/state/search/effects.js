@@ -11,22 +11,31 @@ export default function* searchEffects(){
 }
 
 function* make_github_search(data){
-    try {
-        const request = yield query(
-            search_query(data.payload)
-        )
+    const request = yield query(
+        search_query(data.payload)
+    )
 
-        yield put(
-            MAKE_SEARCH({
-                search_done: true,           
-                search_result: request
-            })
-        )
-    } catch (e) {
-        console.info(e)
-    }
+    let result = yield request.items.map( (item) => {
+        return {
+            owner:{
+                name: item.owner.login,
+                url: item.owner.htm_url
+            },
+            repo:{
+                id: item.id,
+                name: item.full_name
+            }
+        }
+    })
+
+    yield put(
+        MAKE_SEARCH({
+            search_done: true,           
+            search_result: result
+        })
+    )
 }
 
 function* watchMakeSearch(){
-    yield takeEvery('MAKE_SEARCH_ASYNC', make_github_search )
+    yield takeEvery('MAKE_SEARCH_ASYNC', make_github_search)
   }

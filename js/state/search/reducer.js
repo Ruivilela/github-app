@@ -12,6 +12,9 @@ const searchReducer =
                 newState = Object.assign({} , state, action.payload)
                 return newState
                 break;
+            case 'RESET_SEARCH_STATE':
+                return state
+                break; 
         }
         
         return state;    

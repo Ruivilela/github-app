@@ -9,7 +9,6 @@ import { all } from 'redux-saga/effects';
 // import promise from './promise';
 
 // reducers
-import peopleReducer from './people/reducer.js';
 import searchReducer from './search/reducer.js';
 
 // effects 
@@ -33,7 +32,6 @@ export default function configureStore(){
   );
 
   const reducer = combineReducers({
-    people: peopleReducer,
     search: searchReducer
   })
 
