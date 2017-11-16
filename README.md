@@ -14,9 +14,9 @@
 On the command prompt run the following commands
 
 ```sh
-$ git clone https://github.com/start-react/native-starter-kit.git
+$ git clone https://github.com/Ruivilela/github-app.git
 
-$ cd native-starter-kit/
+$ cd github-app/
 
 $ npm install
 ```
