@@ -16,7 +16,7 @@ On the command prompt run the following commands
 ```sh
 $ git clone https://github.com/Ruivilela/github-app.git
 
-$ cd github-app/
+$ cd github-app-master/
 
 $ npm install
 ```
